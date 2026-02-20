@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .drink {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        .drink img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .drink h2 {
+            margin-top: 0;
+        }
+        .age-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        .age-gate button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="front-page" id="frontPage" style="display: block;">
+        <div style="text-align: center; padding: 50px; background: linear-gradient(to bottom, #ff7e5f, #feb47b); color: white;">
+            <h1>Welcome to Drinks Hub</h1>
+            <p>Discover a variety of refreshing beverages!</p>
+            <img src="cocacola.jpg" alt="Coca Cola" style="width: 30%; margin: 10px; border-radius: 10px;">
+            <img src="pepsi.jpg" alt="Pepsi" style="width: 30%; margin: 10px; border-radius: 10px;">
+            <img src="redbull.jpg" alt="Red Bull" style="width: 30%; margin: 10px; border-radius: 10px;">
+            <br>
+            <button onclick="goToAgeGate()" style="padding: 15px 30px; margin-top: 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">Enter</button>
+        </div>
+    </div>
+
+    <div class="age-gate" id="ageGate">
+        <h1>Are you 18 or older?</h1>
+        <button onclick="enterSite()">Yes</button>
+        <button onclick="window.location.href='https://www.google.com';">No</button>
+    </div>
+
+    <header>
+        <h1>Welcome to the Drinks Info Hub</h1>
+    </header>
+
+    <div class="container">
+        <div class="drink">
+            <h2>Pepsi</h2>
+            <img src="pepsi.jpg" alt="Pepsi" style="width: 50%; height: auto;">
+            <p><strong>Brand:</strong> PepsiCo</p>
+            <p><strong>Cost:</strong> $1.50</p>
+            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine</p>
+            <p><strong>Quality:</strong> Premium</p>
+            <p><strong>Quantity:</strong> 330ml</p>
+            <p><strong>Flavor:</strong> Cola, Cherry, Vanilla</p>
+        </div>
+
+        <div class="drink">
+            <h2>Monster Energy</h2>
+            <img src="monster.jpg" alt="Monster Energy" style="width: 30%; height: auto;">
+            <p><strong>Brand:</strong> Monster Beverage</p>
+            <p><strong>Cost:</strong> $2.00</p>
+            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Caffeine, Taurine</p>
+            <p><strong>Quality:</strong> High</p>
+            <p><strong>Quantity:</strong> 500ml</p>
+            <p><strong>Flavor:</strong> Original, Mango Loco, Ultra Paradise</p>
+        </div>
+
+        <div class="drink">
+            <h2>Coca Cola</h2>
+            <img src="cocacola.jpg" alt="Coca Cola" style="width: 50%; height: auto;">
+            <p><strong>Brand:</strong> The Coca-Cola Company</p>
+            <p><strong>Cost:</strong> $1.40</p>
+            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine, Natural Flavors</p>
+            <p><strong>Quality:</strong> Premium</p>
+            <p><strong>Quantity:</strong> 330ml</p>
+            <p><strong>Flavor:</strong> Classic, Cherry, Vanilla</p>
+        </div>
+
+        <div class="drink">
+            <h2>Red Bull</h2>
+            <img src="redbull.jpg" alt="Red Bull" style="width: 50%; height: auto;">
+            <p><strong>Brand:</strong> Red Bull GmbH</p>
+            <p><strong>Cost:</strong> $2.50</p>
+            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Citric Acid, Taurine, Caffeine, B-Vitamins</p>
+            <p><strong>Quality:</strong> High</p>
+            <p><strong>Quantity:</strong> 250ml</p>
+            <p><strong>Flavor:</strong> Original, Tropical, Watermelon</p>
+        </div>
+
+        <div class="drink">
+            <h2>Rockstar</h2>
+            <img src="rockstar.jpg" alt="Rockstar" style="width: 50%; height: auto;">
+            <p><strong>Brand:</strong> Rockstar, Inc.</p>
+            <p><strong>Cost:</strong> $2.00</p>
+            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Caffeine, Taurine, Guarana Extract</p>
+            <p><strong>Quality:</strong> High</p>
+            <p><strong>Quantity:</strong> 500ml</p>
+            <p><strong>Flavor:</strong> Original, Punched, Pure Zero</p>
+        </div>
+    </div>
+
+    <script>
+        function enterSite() {
+            document.getElementById('ageGate').style.display = 'none';
+        }
+
+        function goToAgeGate() {
+            document.getElementById('frontPage').style.display = 'none';
+            document.getElementById('ageGate').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
