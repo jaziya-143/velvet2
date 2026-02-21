@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="./img.png" alt="Project Banner" width="100%">
-</p>
+<img width="1280" height="640" alt="image" src="https://github.com/user-attachments/assets/af583f61-c101-4071-815d-e90e92b81f83" />
+
 
 
 # 🥤 SipWise: The Drinks Info Hub
