@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="./drink.png" alt="Project Banner" width="50%">
+  <img src="./img.png" alt="Project Banner" width="100%">
 </p>
-
 # 🥤 SipWise: The Drinks Info Hub
 
 ## 📌 Basic Details
