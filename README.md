@@ -1,7 +1,5 @@
 <img width="1280" height="640" alt="image" src="https://github.com/user-attachments/assets/af583f61-c101-4071-815d-e90e92b81f83" />
 
-
-
 # 🥤 SipWise: The Drinks Info Hub
 
 ## 📌 Basic Details
