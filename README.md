@@ -13,7 +13,7 @@
 - **Member 2:** [anughraha vinu] - [viswajyothi college of engneering and tecnology]  
 
 ### 🔗 Hosted Project Link
-[Click here to view the live project](https://your-live-link.com)
+[Click here to view the live project](https://jaziya-143.github.io/velvet2/)
 
 ---
 
