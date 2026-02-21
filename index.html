@@ -40,7 +40,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
-            display: none;
+            display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -58,7 +58,28 @@
     </style>
 </head>
 <body>
-    <div class="front-page" id="frontPage" style="display: block;">
+    <div class="age-gate" id="ageGate">
+        <h1>Are you 18 or older?</h1>
+        <button onclick="enterSite()">Yes</button>
+        <button onclick="window.location.href='https://www.google.com';">No</button>
+    </div>
+
+    <div class="user-section" id="userSection" style="display: none;">
+        <div style="text-align: center; padding: 50px; background: linear-gradient(to bottom, #ff9a9e, #fad0c4); color: #333; font-family: 'Comic Sans MS', cursive, sans-serif; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <h1 style="font-size: 2.5em;">Choose Your Section</h1>
+            <p style="font-size: 1.2em;">Are you a kid or an adult?</p>
+            <button onclick="goToFrontPage('kid')" style="padding: 15px 30px; margin: 10px; background-color: #ff6f61; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1em; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Kid</button>
+            <button onclick="goToFrontPage('adult')" style="padding: 15px 30px; margin: 10px; background-color: #6a1b9a; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1em; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Adult</button>
+            <div style="margin-top: 20px;">
+                <img src="chocolatemilk.jpg" alt="Chocolate Milk" style="width: 20%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <img src="smoothies.jpg" alt="Smoothies" style="width: 20%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <img src="monster.jpg" alt="Fruit Juice" style="width: 20%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <img src="cocacola.jpg" alt="Coca Cola" style="width: 20%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            </div>
+        </div>
+    </div>
+
+    <div class="front-page" id="frontPage" style="display: none;">
         <div style="text-align: center; padding: 50px; background: linear-gradient(to bottom, #ff7e5f, #feb47b); color: white;">
             <h1>Welcome to Drinks Hub</h1>
             <p>Discover a variety of refreshing beverages!</p>
@@ -66,85 +87,183 @@
             <img src="pepsi.jpg" alt="Pepsi" style="width: 30%; margin: 10px; border-radius: 10px;">
             <img src="redbull.jpg" alt="Red Bull" style="width: 30%; margin: 10px; border-radius: 10px;">
             <br>
-            <button onclick="goToAgeGate()" style="padding: 15px 30px; margin-top: 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">Enter</button>
+            <button onclick="goToDrinksPage()" style="padding: 15px 30px; margin-top: 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">Explore Drinks</button>
         </div>
     </div>
 
-    <div class="age-gate" id="ageGate">
-        <h1>Are you 18 or older?</h1>
-        <button onclick="enterSite()">Yes</button>
-        <button onclick="window.location.href='https://www.google.com';">No</button>
+    <div class="kid-front-page" id="kidFrontPage" style="display: none;">
+        <div style="text-align: center; padding: 50px; background: linear-gradient(to bottom, #a1c4fd, #c2e9fb); color: #333; font-family: 'Comic Sans MS', cursive, sans-serif; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <h1 style="font-size: 2.5em;">Welcome to Healthy Drinks Hub</h1>
+            <p style="font-size: 1.2em;">Explore a variety of healthy and delicious drinks!</p>
+            <img src="chocolatemilk.jpg" alt="Chocolate Milk" style="width: 30%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <img src="smoothies.jpg" alt="Smoothies" style="width: 30%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <img src="fruitjuice.jpg" alt="Fruit Juice" style="width: 30%; margin: 10px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <br>
+            <button onclick="goToHealthyDrinksPage()" style="padding: 15px 30px; margin-top: 20px; background-color: #4caf50; color: white; border: none; border-radius: 5px; cursor: pointer;">Explore Healthy Drinks</button>
+        </div>
     </div>
 
-    <header>
-        <h1>Welcome to the Drinks Info Hub</h1>
-    </header>
+    <div class="drinks-page" id="drinksPage" style="display: none;">
+        <header>
+            <h1>Welcome to the Drinks Info Hub</h1>
+        </header>
 
-    <div class="container">
-        <div class="drink">
-            <h2>Pepsi</h2>
-            <img src="pepsi.jpg" alt="Pepsi" style="width: 50%; height: auto;">
-            <p><strong>Brand:</strong> PepsiCo</p>
-            <p><strong>Cost:</strong> $1.50</p>
-            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine</p>
-            <p><strong>Quality:</strong> Premium</p>
-            <p><strong>Quantity:</strong> 330ml</p>
-            <p><strong>Flavor:</strong> Cola, Cherry, Vanilla</p>
+        <div class="container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="pepsi.jpg" alt="Pepsi" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Pepsi</h2>
+                    <p><strong>Brand:</strong> PepsiCo</p>
+                    <p><strong>Cost:</strong> $1.50</p>
+                    <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine</p>
+                    <p><strong>Quality:</strong> Premium</p>
+                    <p><strong>Quantity:</strong> 330ml</p>
+                    <p><strong>Flavor:</strong> Cola, Cherry, Vanilla</p>
+                </div>
+            </div>
+
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="monster.jpg" alt="Monster Energy" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Monster Energy</h2>
+                    <p><strong>Brand:</strong> Monster Beverage</p>
+                    <p><strong>Cost:</strong> $2.00</p>
+                    <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Caffeine, Taurine</p>
+                    <p><strong>Quality:</strong> High</p>
+                    <p><strong>Quantity:</strong> 500ml</p>
+                    <p><strong>Flavor:</strong> Original, Mango Loco, Ultra Paradise</p>
+                </div>
+            </div>
+
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="cocacola.jpg" alt="Coca Cola" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Coca Cola</h2>
+                    <p><strong>Brand:</strong> The Coca-Cola Company</p>
+                    <p><strong>Cost:</strong> $1.40</p>
+                    <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine, Natural Flavors</p>
+                    <p><strong>Quality:</strong> Premium</p>
+                    <p><strong>Quantity:</strong> 330ml</p>
+                    <p><strong>Flavor:</strong> Classic, Cherry, Vanilla</p>
+                </div>
+            </div>
+
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="redbull.jpg" alt="Red Bull" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Red Bull</h2>
+                    <p><strong>Brand:</strong> Red Bull GmbH</p>
+                    <p><strong>Cost:</strong> $2.50</p>
+                    <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Citric Acid, Taurine, Caffeine, B-Vitamins</p>
+                    <p><strong>Quality:</strong> High</p>
+                    <p><strong>Quantity:</strong> 250ml</p>
+                    <p><strong>Flavor:</strong> Original, Tropical, Watermelon</p>
+                </div>
+            </div>
+
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="rockstar.jpg" alt="Rockstar" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Rockstar</h2>
+                    <p><strong>Brand:</strong> Rockstar, Inc.</p>
+                    <p><strong>Cost:</strong> $2.00</p>
+                    <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Caffeine, Taurine, Guarana Extract</p>
+                    <p><strong>Quality:</strong> High</p>
+                    <p><strong>Quantity:</strong> 500ml</p>
+                    <p><strong>Flavor:</strong> Original, Punched, Pure Zero</p>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="drink">
-            <h2>Monster Energy</h2>
-            <img src="monster.jpg" alt="Monster Energy" style="width: 30%; height: auto;">
-            <p><strong>Brand:</strong> Monster Beverage</p>
-            <p><strong>Cost:</strong> $2.00</p>
-            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Caffeine, Taurine</p>
-            <p><strong>Quality:</strong> High</p>
-            <p><strong>Quantity:</strong> 500ml</p>
-            <p><strong>Flavor:</strong> Original, Mango Loco, Ultra Paradise</p>
-        </div>
+    <div class="healthy-drinks-page" id="healthyDrinksPage" style="display: none;">
+        <header>
+            <h1>Welcome to the Healthy Drinks Info Hub</h1>
+        </header>
 
-        <div class="drink">
-            <h2>Coca Cola</h2>
-            <img src="cocacola.jpg" alt="Coca Cola" style="width: 50%; height: auto;">
-            <p><strong>Brand:</strong> The Coca-Cola Company</p>
-            <p><strong>Cost:</strong> $1.40</p>
-            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine, Natural Flavors</p>
-            <p><strong>Quality:</strong> Premium</p>
-            <p><strong>Quantity:</strong> 330ml</p>
-            <p><strong>Flavor:</strong> Classic, Cherry, Vanilla</p>
-        </div>
+        <div class="container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="choco.jpg" alt="Chocolate Milk" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Chocolate Milk</h2>
+                    <p><strong>Brand:</strong> Dairy Delight</p>
+                    <p><strong>Cost:</strong> $1.20</p>
+                    <p><strong>Ingredients:</strong> Milk, Cocoa, Sugar</p>
+                    <p><strong>Quality:</strong> Premium</p>
+                    <p><strong>Quantity:</strong> 250ml</p>
+                    <p><strong>Flavor:</strong> Chocolate</p>
+                    <p><strong>Calorie:</strong> 150 kcal</p>
+                </div>
+            </div>
 
-        <div class="drink">
-            <h2>Red Bull</h2>
-            <img src="redbull.jpg" alt="Red Bull" style="width: 50%; height: auto;">
-            <p><strong>Brand:</strong> Red Bull GmbH</p>
-            <p><strong>Cost:</strong> $2.50</p>
-            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Citric Acid, Taurine, Caffeine, B-Vitamins</p>
-            <p><strong>Quality:</strong> High</p>
-            <p><strong>Quantity:</strong> 250ml</p>
-            <p><strong>Flavor:</strong> Original, Tropical, Watermelon</p>
-        </div>
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="fruit.jpg" alt="Fruity Juice" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Fresh fruit Juices</h2>
+                    <p><strong>Brand:</strong> Nature's Nectar</p>
+                    <p><strong>Cost:</strong> $1.50</p>
+                    <p><strong>Ingredients:</strong> Orange, Apple, Pineapple</p>
+                    <p><strong>Quality:</strong> Organic</p>
+                    <p><strong>Quantity:</strong> 300ml</p>
+                    <p><strong>Flavor:</strong> Mixed Fruit</p>
+                    <p><strong>Calorie:</strong> 120 kcal</p>
+                </div>
+            </div>
 
-        <div class="drink">
-            <h2>Rockstar</h2>
-            <img src="rockstar.jpg" alt="Rockstar" style="width: 50%; height: auto;">
-            <p><strong>Brand:</strong> Rockstar, Inc.</p>
-            <p><strong>Cost:</strong> $2.00</p>
-            <p><strong>Ingredients:</strong> Carbonated Water, Sugar, Glucose, Caffeine, Taurine, Guarana Extract</p>
-            <p><strong>Quality:</strong> High</p>
-            <p><strong>Quantity:</strong> 500ml</p>
-            <p><strong>Flavor:</strong> Original, Punched, Pure Zero</p>
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="smoothie.jpg" alt="Smoothie" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Smoothie</h2>
+                    <p><strong>Brand:</strong> Smoothie Bliss</p>
+                    <p><strong>Cost:</strong> $2.00</p>
+                    <p><strong>Ingredients:</strong> Banana, Strawberry, Yogurt</p>
+                    <p><strong>Quality:</strong> Fresh</p>
+                    <p><strong>Quantity:</strong> 350ml</p>
+                    <p><strong>Flavor:</strong> Strawberry Banana</p>
+                    <p><strong>Calorie:</strong> 180 kcal</p>
+                </div>
+            </div>
+
+            <div class="drink" style="width: 300px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <img src="veg.jpg" alt="Vegetable Juice" style="width: 100%; height: auto;">
+                <div style="padding: 15px; background: #f9f9f9;">
+                    <h2 style="margin: 0; font-size: 1.5em; color: #333;">Vegetable Juices</h2>
+                    <p><strong>Brand:</strong> Green Goodness</p>
+                    <p><strong>Cost:</strong> $1.80</p>
+                    <p><strong>Ingredients:</strong> Spinach, Kale, Cucumber</p>
+                    <p><strong>Quality:</strong> Organic</p>
+                    <p><strong>Quantity:</strong> 300ml</p>
+                    <p><strong>Flavor:</strong> Green Veggie</p>
+                    <p><strong>Calorie:</strong> 90 kcal</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         function enterSite() {
             document.getElementById('ageGate').style.display = 'none';
+            document.getElementById('userSection').style.display = 'block';
         }
 
-        function goToAgeGate() {
+        function goToFrontPage(section) {
+            document.getElementById('userSection').style.display = 'none';
+            if (section === 'kid') {
+                document.getElementById('kidFrontPage').style.display = 'block';
+            } else {
+                document.getElementById('frontPage').style.display = 'block';
+            }
+            console.log("User selected section: " + section);
+        }
+
+        function goToDrinksPage() {
             document.getElementById('frontPage').style.display = 'none';
-            document.getElementById('ageGate').style.display = 'flex';
+            document.getElementById('drinksPage').style.display = 'block';
+        }
+
+        function goToHealthyDrinksPage() {
+            document.getElementById('kidFrontPage').style.display = 'none';
+            document.getElementById('healthyDrinksPage').style.display = 'block';
         }
     </script>
 </body>
