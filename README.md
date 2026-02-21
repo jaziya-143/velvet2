@@ -145,10 +145,9 @@ You can run it by:
 
 ---
 
-# 👥 Team Contributions
+# 👥 demo video
 
-- **[Your Name]:** Logic implementation (JavaScript), Age-gate system, and documentation  
-- **[Partner Name]:** UI/UX design (CSS), Content curation, and Image assets management  
+https://drive.google.com/file/d/1gSBotZ7iOnnrzFUd-BZFdZYPG9vn9cFp/view?usp=sharing
 
 ---
 
